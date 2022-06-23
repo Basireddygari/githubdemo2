@@ -1,0 +1,27 @@
+package com.example.dao;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.Binding.TicketResponse;
+
+@Repository
+public class Irctcdao {
+private	Map<String,TicketResponse> tm= new HashMap<>();
+	public String saveTicket(TicketResponse t) {
+		tm.put(t.getPnr(), t);
+		//(t.getPnr());
+		return t.getPnr();
+	}
+public TicketResponse getTicketByPnr(String pnr) {
+	if(tm.containsKey(pnr))
+	{
+		return tm.get(pnr);
+				//get(pnr);
+	}else {
+	return null;
+	}
+}
+}
